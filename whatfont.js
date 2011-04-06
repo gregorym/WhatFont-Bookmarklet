@@ -101,6 +101,7 @@
     } 
     
     CONTROL.addEventListener('mouseup', restore, false);
+		CONTROL.addEventListener('keyup', function(e){if (e.keyCode == 27) { restore()}, false);
   }
 
   activate();
