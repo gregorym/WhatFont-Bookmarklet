@@ -61,7 +61,9 @@
     var cssfontfamily = window.getComputedStyle(this, null)
                               .getPropertyValue('font-family');
     var cssfontsize = window.getComputedStyle(this, null).getPropertyValue('font-size');
-    var tipmessage = fontInUse(cssfontfamily) + ' ' + cssfontsize;
+    var cssboldfont = window.getComputedStyle(this, null).getPropertyValue('font-weight');
+    cssboldfont = cssboldfont == 700 ? '(bold)' : ''
+    var tipmessage = fontInUse(cssfontfamily) + ' ' + cssboldfont + ' '  + cssfontsize;
     tip(fontInUse(tipmessage), e.pageX, e.pageY);
     e.stopPropagation();
   }
