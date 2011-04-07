@@ -60,7 +60,9 @@
   function update(e) {
     var cssfontfamily = window.getComputedStyle(this, null)
                               .getPropertyValue('font-family');
-    tip(fontInUse(cssfontfamily), e.pageX, e.pageY);
+    var cssfontsize = window.getComputedStyle(this, null).getPropertyValue('font-size');
+    var tipmessage = fontInUse(cssfontfamily) + ' ' + cssfontsize;
+    tip(fontInUse(tipmessage), e.pageX, e.pageY);
     e.stopPropagation();
   }
 
@@ -101,7 +103,7 @@
     } 
     
     CONTROL.addEventListener('mouseup', restore, false);
-		CONTROL.addEventListener('keyup', function(e){if (e.keyCode == 27) { restore()}, false);
+		document.addEventListener('keypress', function(e){if (e.keyCode == 27) restore()}, false);
   }
 
   activate();
